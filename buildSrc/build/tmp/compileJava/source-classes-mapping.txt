@@ -1,0 +1,2 @@
+com/quickstart/bbframework/build/optional/OptionalDependenciesPlugin.java
+ com.quickstart.bbframework.build.optional.OptionalDependenciesPlugin

@@ -1,0 +1,9 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration= \
+com.quickstart.bbframework.config.GlobalCorsAutoConfiguration, \
+com.quickstart.bbframework.config.MyBatisPlusAutoConfiguration, \
+com.quickstart.bbframework.config.RedisAutoConfiguration, \
+com.quickstart.bbframework.config.SecurityAutoConfiguration, \
+com.quickstart.bbframework.config.BBFrameworkAutoConfiguration
+
+org.springframework.context.ApplicationContextInitializer=\
+com.quickstart.bbframework.common.initializer.DefaultDatabaseInitializer

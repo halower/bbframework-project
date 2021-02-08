@@ -1,0 +1,66 @@
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'com.quickstart.bbframework.build.optional'
+}
+
+repositories {
+    maven { url "http://192.168.7.197:8081/repository/maven-public/" }
+}
+
+
+ext {
+    configuration = [
+            repository_home = "http://192.168.7.197:8081"
+    ]
+}
+
+dependencies {
+    api platform('org.springframework.boot:spring-boot-dependencies:2.3.1.RELEASE')
+    optional 'mysql:mysql-connector-java:8.0.17'
+    api 'org.springframework.boot:spring-boot-starter-data-redis'
+    api 'org.springframework.boot:spring-boot-starter-security'
+    api 'cn.hutool:hutool-all:4.5.7'
+    api 'io.jsonwebtoken:jjwt:0.9.0'
+    api 'com.baomidou:mybatis-plus-generator:3.3.2'
+    api 'org.apache.velocity:velocity-engine-core:2.2'
+    compileOnlyApi 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    api 'com.tfswx:infrastructure-spring-boot-starter:0.0.3'
+    api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.1'
+    api 'org.apache.ant:ant:1.10.9'
+    api 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.3.1.RELEASE'
+}
+
+group = 'com.tfswx'
+version = '0.0.3'
+description = 'bbframework'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.tfswx'
+            artifactId = 'bbframework-spring-boot-starter'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "${repository_home}/repository/maven-releases/"
+            def snapshotsRepoUrl = "${repository_home}/repository/maven-snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username  'admin'
+                password  'admin123'
+            }
+        }
+    }
+}

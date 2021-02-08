@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "name": "application.database",
+      "type": "com.quickstart.bbframework.common.config.BBFrameworkProperties",
+      "sourceType": "com.quickstart.bbframework.common.config.BBFrameworkProperties"
+    },
+    {
+      "name": "secure.ignored",
+      "type": "com.quickstart.bbframework.security.config.IgnoreUrlsConfig",
+      "sourceType": "com.quickstart.bbframework.security.config.IgnoreUrlsConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "application.database.initialization",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.quickstart.bbframework.common.config.BBFrameworkProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "application.database.initializer",
+      "type": "java.lang.String",
+      "sourceType": "com.quickstart.bbframework.common.config.BBFrameworkProperties",
+      "defaultValue": "mysql_initializer"
+    },
+    {
+      "name": "secure.ignored.urls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.quickstart.bbframework.security.config.IgnoreUrlsConfig"
+    }
+  ],
+  "hints": []
+}
